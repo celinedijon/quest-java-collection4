@@ -17,14 +17,23 @@ public class Thanos {
         Flower rose = new Flower("Rose");
 
         // TODO 1 : Create a TreeMap where :
-        // Hulk, Thor and Scarlet Witch have a Rose
-        // Vision has a Tulip
-        // Captain America has a Lily
-        // Doctor Strange and Black Widow have a Violet
+        TreeMap<Hero, Flower> heroFlowerMap = new TreeMap<>(Comparator.comparing(Hero::getName));
+        heroFlowerMap.put(hulk, rose);
+        heroFlowerMap.put(thor, rose);
+        heroFlowerMap.put(scarletWitch, rose);
+        heroFlowerMap.put(vision, tulip);
+        heroFlowerMap.put(captainAmerica, lily);
+        heroFlowerMap.put(doctorStrange, violet);
+        heroFlowerMap.put(blackWidow, violet);
 
         // TODO 2 : Print if `begonia` is contained in the TreeMap
+        boolean containsBegonia = heroFlowerMap.containsValue(begonia);
+        System.out.println("Is begonia in the map? " + containsBegonia);
 
         // TODO 3 : For each hero, alphabetically, print the corresponding flower
-
+        for (Map.Entry<Hero, Flower> entry : heroFlowerMap.entrySet()) {
+            System.out.println(entry.getKey().getName() + " has a " + entry.getValue().getName());
+        }
     }
 }
+
